@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 function WorkoutForm(params) {
+  const { dispatch } = useWorkoutsContext();
   const [title, setTitle] = useState("");
   const [reps, setReps] = useState("");
   const [load, setLoad] = useState("");
@@ -29,12 +31,13 @@ function WorkoutForm(params) {
       setLoad("");
       setError(null);
       console.log("Workout created successfully!", resData);
+      dispatch({ type: "CREATE_WORKOUT", payload: resData });
     }
   };
 
   return (
     <>
-      <div className="block mx-auto max-w-xl p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+      <div className="block bg-black mx-auto max-w-xl p-6  border border-gray-200 rounded-lg shadow-lg  overflow-hidden  dark:bg-gray-800 dark:border-gray-700 ">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
           Create Workout
         </h5>
@@ -68,7 +71,7 @@ function WorkoutForm(params) {
           </div>
           <button
             type="submit"
-            class="inline-flex items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-blue-600 rounded-md text-white"
+            class="inline-flex  items-center px-5 py-2.5 mt-4 sm:mt-6 text-sm font-medium text-center bg-blue-600 rounded-md text-white"
           >
             Add Workout
           </button>

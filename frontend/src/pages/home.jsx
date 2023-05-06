@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import WorkoutCard from "../components/workout-card";
 import WorkoutForm from "../components/workout-form";
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext";
 
 function Home(params) {
-  const [workouts, setWorkouts] = useState([]); // [state, setState
+  const { workouts, dispatch } = useWorkoutsContext();
   useEffect(() => {
     const fetchWorkouts = async () => {
       const res = await fetch("/api/workouts");
       const data = await res.json();
 
       if (res.ok) {
-        setWorkouts(data);
+        dispatch({ type: "SET_WORKOUTS", payload: data });
       }
     };
 
@@ -34,11 +35,7 @@ function Home(params) {
               return (
                 <>
                   <WorkoutCard
-                    key={workout._id}
-                    title={workout.title}
-                    reps={workout.reps}
-                    load={workout.load}
-                    createdAt={workout.createdAt}
+                  workout={workout}
                   />
                 </>
               );
