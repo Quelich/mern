@@ -21,12 +21,11 @@ function Home(params) {
   return (
     <>
       <div id="home">
-        <h1 className="text-3xl ">Home</h1>
         <div id="workout-form">
           <WorkoutForm />
         </div>
 
-        <div id="workouts" className="container mx-auto  mt-6">
+        <div id="workouts" className="container mx-auto mb-10  mt-6">
           <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             My Workouts
           </h5>
@@ -34,9 +33,7 @@ function Home(params) {
             {workouts.map((workout) => {
               return (
                 <>
-                  <WorkoutCard
-                  workout={workout}
-                  />
+                  <WorkoutCard workout={workout} />
                 </>
               );
             })}
