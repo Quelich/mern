@@ -38,4 +38,4 @@ So you will able to retrieve data from the server.
 ## Future Goals
 
 - User authentication
-- Dashboard (workouts plans, steps, water intake, nutritions, calories, daily-weekly-monhthly progress and more)
+- Dashboard (workouts plans, steps, water intake, nutritions, calories, daily-weekly-monthly progress and more)
