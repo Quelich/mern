@@ -7,6 +7,7 @@ function WorkoutForm(params) {
   const [reps, setReps] = useState("");
   const [load, setLoad] = useState("");
   const [error, setError] = useState(null);
+  const [emptyFields, setEmptyFields] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,12 +25,14 @@ function WorkoutForm(params) {
 
     if (!response.ok) {
       setError(resData.error);
+      setEmptyFields(resData.emptyFields);
     }
     if (response.ok) {
       setTitle("");
       setReps("");
       setLoad("");
       setError(null);
+      setEmptyFields([]);
       console.log("Workout created successfully!", resData);
       dispatch({ type: "CREATE_WORKOUT", payload: resData });
     }
@@ -75,7 +78,15 @@ function WorkoutForm(params) {
           >
             Add Workout
           </button>
-          {error && <div className="text-red-500">{error}</div>}
+
+          {error && (
+            <div
+              class="p-4 mt-2 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+              role="alert"
+            >
+              <span class="font-medium">{error}</span>
+            </div>
+          )}
         </form>
       </div>
     </>
