@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 
-function Navbar(params) {
+function Navbar() {
   return (
     <>
-      <nav className="bg-black border-gray-900  dark:border-gray-700">
+      <nav className="bg-black border-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <Link to="#" className="flex items-center">
             <img src="logo512.png" className="h-8 mr-3" alt="Flowbite Logo" />
@@ -33,12 +33,15 @@ function Navbar(params) {
               ></path>
             </svg>
           </button>
-          <div className="hidden w-full md:block md:w-auto" id="navbar-dropdown">
+          <div
+            className="hidden w-full md:block md:w-auto"
+            id="navbar-dropdown"
+          >
             <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg  md:flex-row md:space-x-8 md:mt-0 md:border-0">
               <li>
                 <Link
                   to="#"
-                  className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500 dark:bg-blue-600 md:dark:bg-transparent"
+                  className="block py-2 pl-3 pr-4 text-blue-700   rounded md:bg-transparent md:text-white md:p-0"
                   aria-current="page"
                 >
                   Home

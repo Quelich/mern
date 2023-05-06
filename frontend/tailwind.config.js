@@ -1,16 +1,15 @@
+const colors = require("tailwindcss/colors");
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    "./src/**/*.{html,js,jsx,ts,tsx}",
-    "./node_modules/flowbite/**/*.{html,js,jsx,ts,tsx}",
+    "./src/**/*.{js,jsx,ts,tsx}",
+    "./node_modules/flowbite/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {},
-      fontFamily: {
-        sans: ["Graphik", "sans-serif"],
-        serif: ["Merriweather", "serif"],
-      },
+    colors: {
+      black: "#192126",
+      green: "#BBF246",
     },
   },
   plugins: [require("flowbite/plugin")],
